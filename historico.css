@@ -1,0 +1,88 @@
+/* RESET BÁSICO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CONFIGURAÇÕES GERAIS */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+  display: flex;
+}
+
+/* SIDEBAR REAPROVEITADA */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #1a1a2e;
+  color: #fff;
+  padding: 2rem;
+  position: fixed;
+}
+
+/* TABELA DE DADOS */
+.historico-container {
+  margin-left: 250px;
+  padding: 2.5rem;
+  width: 100%;
+}
+
+.busca-caixa {
+  margin-bottom: 2rem;
+}
+
+.busca-caixa input {
+  width: 400px;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+th {
+  background-color: #e2e8f0;
+  padding: 1.2rem;
+  text-align: left;
+  color: #475569;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+td {
+  padding: 1.2rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+/* BADGES DE STATUS */
+.status-pendente {
+  color: #d97706;
+  background: #fef3c7;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+.status-concluido {
+  color: #059669;
+  background: #d1fae5;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.75rem;
+}
+
+/* BOTÕES DE AÇÃO */
+.btn-check { background: #dcfce7; border: none; cursor: pointer; padding: 8px; border-radius: 4px; }
+.btn-del { background: #fee2e2; border: none; cursor: pointer; padding: 8px; border-radius: 4px; margin-left: 5px; }

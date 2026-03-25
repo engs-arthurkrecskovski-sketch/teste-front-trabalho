@@ -1,0 +1,40 @@
+body {
+  display: flex;
+  font-family: 'Segoe UI';
+  background: #f4f6f8;
+}
+
+.sidebar {
+  width: 250px;
+  background: #1a1a2e;
+  color: white;
+  padding: 2rem;
+  position: fixed;
+}
+
+.agendamento-content {
+  margin-left: 250px;
+  padding: 3rem;
+}
+
+.box-agendar {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 500px;
+}
+
+select, input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.btn-confirmar {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+  background: #10b981;
+  color: white;
+  border: none;
+}

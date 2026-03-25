@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Histórico - AutoManage</title>
+    <link rel="stylesheet" href="historico.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <h2>🔧 OFICINA<span>PRO</span></h2>
+        <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="cadastro.html">Clientes</a></li>
+            <li><a href="agendamento.html">Agendamento</a></li>
+            <li><a href="historico.html" class="active">Histórico</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="historico-container">
+            <h1>Histórico de Serviços</h1>
+            
+            <div class="busca-caixa">
+                <input type="text" id="busca" placeholder="Filtrar por nome ou placa..." onkeyup="filtrar()">
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Veículo</th>
+                        <th>Serviço</th>
+                        <th>Data</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-historico"></tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        function renderizar(lista = getServicos()) {
+            const corpo = document.getElementById('lista-historico');
+            corpo.innerHTML = lista.map(s => `
+                <tr>
+                    <td>${s.cliente}</td>
+                    <td>${s.carro}</td>
+                    <td>${s.servico}</td>
+                    <td>${s.data}</td>
+                    <td><span class="status-${s.status}">${s.status.toUpperCase()}</span></td>
+                    <td>
+                        <button onclick="mudarStatus(${s.id})" class="btn-check">✔️</button>
+                        <button onclick="remover(${s.id})" class="btn-del">🗑️</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function mudarStatus(id) {
+            let servicos = getServicos();
+            servicos = servicos.map(s => s.id === id ? {...s, status: s.status === 'pendente' ? 'concluido' : 'pendente'} : s);
+            salvarDados('oficina_servicos', servicos);
+            renderizar();
+        }
+
+        function remover(id) {
+            if(confirm("Deseja excluir este registro?")) {
+                let servicos = getServicos();
+                servicos = servicos.filter(s => s.id !== id);
+                salvarDados('oficina_servicos', servicos);
+                renderizar();
+            }
+        }
+
+        function filtrar() {
+            const termo = document.getElementById('busca').value.toLowerCase();
+            const filtrados = getServicos().filter(s => s.cliente.toLowerCase().includes(termo) || s.carro.toLowerCase().includes(termo));
+            renderizar(filtrados);
+        }
+
+        renderizar();
+    </script>
+</body>
+</html>
