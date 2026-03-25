@@ -1,40 +1,51 @@
-body {
-  display: flex;
-  font-family: 'Segoe UI';
-  background: #f4f6f8;
-}
+body { display: flex; font-family: Arial; background: #f4f6f8; }
 
 .sidebar {
-  width: 250px;
-  background: #1a1a2e;
-  color: white;
-  padding: 2rem;
-  position: fixed;
+    width: 250px;
+    background: #1a1a2e;
+    color: white;
+    padding: 2rem;
+    height: 100vh;
+    position: fixed;
 }
 
-.agendamento-content {
-  margin-left: 250px;
-  padding: 3rem;
+.sidebar a {
+    display: block;
+    color: #cbd5e1;
+    text-decoration: none;
+    padding: 1rem;
 }
+
+.sidebar a.active { background: #3b82f6; border-radius: 5px; }
+
+.agendamento-content { margin-left: 250px; padding: 3rem; width: 100%; }
 
 .box-agendar {
-  background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  max-width: 500px;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
+.form-group { margin-bottom: 1rem; }
+
 select, input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
 }
 
 .btn-confirmar {
-  margin-top: 15px;
-  width: 100%;
-  padding: 12px;
-  background: #10b981;
-  color: white;
-  border: none;
+    display: block;
+    margin-top: 15px;
+    text-align: center;
+    padding: 12px;
+    background: #10b981;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
 }

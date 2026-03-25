@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Agendar Serviço - AutoManage</title>
+    <title>Agendar Serviço</title>
     <link rel="stylesheet" href="agendamento.css">
 </head>
 <body>
@@ -19,47 +19,25 @@
     <main>
         <div class="agendamento-content">
             <h1>Novo Agendamento</h1>
-            <form id="form-agendamento" class="box-agendar">
+            <div class="box-agendar">
                 <div class="form-group">
                     <label>Selecionar Cliente</label>
-                    <select id="select-cliente" required></select>
+                    <select>
+                        <option>João Silva (Civic - PLK9090)</option>
+                        <option>Maria Oliveira (Onix - ABC1234)</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label>Tipo de Serviço</label>
-                    <input type="text" id="servico" required>
+                    <input type="text" placeholder="Ex: Troca de Óleo">
                 </div>
                 <div class="form-group">
                     <label>Data</label>
-                    <input type="date" id="data" required>
+                    <input type="date">
                 </div>
-                <button type="submit" class="btn-confirmar">Confirmar Agendamento</button>
-            </form>
+                <a href="historico.html" class="btn-confirmar">Finalizar Agendamento</a>
+            </div>
         </div>
     </main>
-
-    <script src="script.js"></script>
-    <script>
-        const clientes = getClientes();
-        const select = document.getElementById('select-cliente');
-        select.innerHTML = clientes.map(c => `<option value="${c.id}">${c.nome} (${c.carro})</option>`).join('');
-
-        document.getElementById('form-agendamento').onsubmit = (e) => {
-            e.preventDefault();
-            const cid = select.value;
-            const clienteObj = clientes.find(c => c.id == cid);
-            const servicos = getServicos();
-            servicos.push({
-                id: Date.now(),
-                cliente: clienteObj.nome,
-                carro: clienteObj.carro,
-                servico: document.getElementById('servico').value,
-                data: document.getElementById('data').value,
-                status: 'pendente'
-            });
-            salvarDados('oficina_servicos', servicos);
-            alert('Serviço agendado!');
-            window.location.href = 'historico.html';
-        };
-    </script>
 </body>
 </html>

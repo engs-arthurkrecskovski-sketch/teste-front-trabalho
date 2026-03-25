@@ -1,68 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<title>Agendamento</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>OficinaPro - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <nav class="sidebar">
+        <h2>🔧 OFICINA<span>PRO</span></h2>
+        <ul>
+            <li><a href="index.html" class="active">Dashboard</a></li>
+            <li><a href="cadastro.html">Clientes</a></li>
+            <li><a href="agendamento.html">Agendamento</a></li>
+            <li><a href="historico.html">Histórico</a></li>
+        </ul>
+    </nav>
 
-<nav class="sidebar">
-<h2>🔧 OFICINA<span>PRO</span></h2>
-<ul>
-<li><a href="index.html">Dashboard</a></li>
-<li><a href="cadastro.html">Clientes</a></li>
-<li><a href="agendamento.html" class="active">Agendamento</a></li>
-<li><a href="historico.html">Histórico</a></li>
-</ul>
-</nav>
-
-<main>
-<div class="agendamento-content">
-<h1>Agendar Serviço</h1>
-
-<form id="form-agendamento" class="box-agendar">
-<select id="select-cliente" required></select>
-<input type="text" id="servico" placeholder="Serviço" required>
-<input type="date" id="data" required>
-
-<button class="btn-confirmar">Agendar</button>
-</form>
-</div>
-</main>
-
-<script src="script.js"></script>
-<script>
-const clientes = getClientes();
-const select = document.getElementById('select-cliente');
-
-select.innerHTML = clientes.map(c =>
-`<option value="${c.id}">${c.nome} - ${c.carro}</option>`
-).join('');
-
-// CORREÇÃO AQUI 👇
-document.getElementById('form-agendamento').onsubmit = (e)=>{
-e.preventDefault();
-
-const cliente = clientes.find(c=>c.id==select.value);
-
-const servicos = getServicos();
-servicos.push({
-id:Date.now(),
-cliente:cliente.nome,
-carro:cliente.carro,
-servico:document.getElementById('servico').value,
-data:document.getElementById('data').value,
-status:'pendente'
-});
-
-salvarDados('oficina_servicos', servicos);
-
-alert("Agendado!");
-location.href="historico.html";
-};
-</script>
-
+    <main>
+        <h1>Painel Geral</h1>
+        <div class="dashboard-cards">
+            <div class="card">
+                <h3>Total Clientes</h3>
+                <span>12</span>
+            </div>
+            <div class="card p">
+                <h3>Serviços Pendentes</h3>
+                <span>04</span>
+            </div>
+            <div class="card c">
+                <h3>Concluídos</h3>
+                <span>28</span>
+            </div>
+        </div>
+    </main>
 </body>
 </html>

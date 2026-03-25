@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Novo Cliente - AutoManage</title>
+    <title>Novo Cliente</title>
     <link rel="stylesheet" href="cadastro.css">
 </head>
 <body>
@@ -19,34 +19,18 @@
     <main>
         <div class="form-container">
             <h1>Cadastrar Cliente</h1>
-            <form id="form-cliente" class="box-cadastro">
+            <div class="box-cadastro">
                 <div class="form-group">
                     <label>Nome do Cliente</label>
-                    <input type="text" id="nome" required>
+                    <input type="text" placeholder="Digite o nome...">
                 </div>
                 <div class="form-group">
                     <label>Veículo e Placa</label>
-                    <input type="text" id="carro" required>
+                    <input type="text" placeholder="Ex: Corolla - ABC1234">
                 </div>
-                <button type="submit" class="btn-salvar">Salvar Cadastro</button>
-            </form>
+                <a href="agendamento.html" class="btn-salvar">Confirmar e Ir para Agendamento</a>
+            </div>
         </div>
     </main>
-
-    <script src="script.js"></script>
-    <script>
-        document.getElementById('form-cliente').onsubmit = (e) => {
-            e.preventDefault();
-            const clientes = getClientes();
-            clientes.push({ 
-                id: Date.now(), 
-                nome: document.getElementById('nome').value, 
-                carro: document.getElementById('carro').value 
-            });
-            salvarDados('oficina_clientes', clientes);
-            alert('Cliente cadastrado com sucesso!');
-            e.target.reset();
-        };
-    </script>
 </body>
 </html>
