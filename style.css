@@ -24,3 +24,110 @@ h1 { color: #1e293b; margin-bottom: 20px; }
 .card.c { border-color: #10b981; }
 .card h3 { color: #64748b; font-size: 0.9rem; text-transform: uppercase; }
 .card span { font-size: 3rem; font-weight: bold; display: block; margin-top: 10px; color: #1e293b; }
+
+
+.card.card-detalhes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Faz o card esticar um pouco se necessário */
+    height: auto; 
+    padding-bottom: 1.5rem;
+}
+
+.card-lista {
+    margin-top: 1.5rem;
+    width: 100%;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 1.5rem;
+    max-height: 250px; /* Limita a altura se tiver muita coisa */
+    overflow-y: auto; /* Adiciona barra de rolagem se passar da altura */
+}
+
+.card-concluidos {
+    position: relative; /* Necessário para posicionar a telinha */
+    cursor: help;
+}
+
+/* Estilo da Telinha (Escondida por padrão) */
+.card-hover-detalhes {
+    position: absolute;
+    top: 100%; /* Aparece logo abaixo do card */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 220px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    padding: 1.5rem;
+    z-index: 100;
+    
+    /* Efeito de Esconder */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    border-top: 4px solid #10b981; /* Cor verde dos concluídos */
+}
+
+/* Deixa o card pronto para receber a janelinha */
+.card-concluidos {
+    position: relative;
+}
+
+/* Janelinha flutuante compacta */
+.card-hover-detalhes {
+    position: absolute;
+    top: 80%; /* Começa um pouco mais para cima para não sumir da tela */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    
+    /* Tamanho reduzido */
+    width: 180px; 
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    padding: 12px;
+    
+    /* Escondido por padrão */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+    border-top: 3px solid #10b981;
+    z-index: 999;
+}
+
+/* Título menor */
+.card-hover-detalhes h4 {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* Lista bem apertadinha */
+.card-hover-detalhes ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card-hover-detalhes li {
+    font-size: 0.8rem;
+    color: #1e293b;
+    padding: 4px 0;
+    border-bottom: 1px solid #f1f5f9;
+    text-align: center;
+}
+
+.card-hover-detalhes li:last-child {
+    border-bottom: none;
+}
+
+/* Mostrar ao passar o mouse */
+.card-concluidos:hover .card-hover-detalhes {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(5px);
+}
