@@ -1,51 +1,9 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body { display: flex; font-family: Arial; background: #f4f6f8; }
-
-.sidebar {
-    width: 250px;
-    background: #1a1a2e;
-    color: white;
-    padding: 2rem;
-    height: 100vh;
-    position: fixed;
-}
-
-.sidebar a {
-    display: block;
-    color: #cbd5e1;
-    text-decoration: none;
-    padding: 1rem;
-}
-
-.sidebar a.active { background: #3b82f6; border-radius: 5px; }
-
-.agendamento-content { margin-left: 250px; padding: 3rem; width: 100%; }
-
-.box-agendar {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    max-width: 500px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.form-group { margin-bottom: 1rem; }
-
-select, input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-top: 5px;
-}
-
-.btn-confirmar {
-    display: block;
-    margin-top: 15px;
-    text-align: center;
-    padding: 12px;
-    background: #10b981;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-}
+main { margin-left: 280px; padding: 3rem; width: 100%; }
+.box-agendar { background: white; padding: 2.5rem; border-radius: 12px; max-width: 500px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
+.form-group { margin-bottom: 1.2rem; }
+label { font-weight: bold; color: #475569; }
+select, input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #cbd5e1; margin-top: 8px; }
+.btn-confirmar { display: block; margin-top: 20px; text-align: center; padding: 14px; background: #10b981; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; transition: 0.3s; }
+.btn-confirmar:hover { background: #059669; }
