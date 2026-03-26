@@ -125,9 +125,20 @@ h1 { color: #1e293b; margin-bottom: 20px; }
     border-bottom: none;
 }
 
-/* Mostrar ao passar o mouse */
-.card-concluidos:hover .card-hover-detalhes {
+.card:hover .card-hover-detalhes {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(5px);
+}
+
+.card.p .card-hover-detalhes {
+    border-top: 3px solid #f59e0b;
+}
+
+.card.c .card-hover-detalhes {
+    border-top: 3px solid #10b981;
+}
+
+.card .card-hover-detalhes {
+    border-top: 3px solid #3b82f6;
 }
